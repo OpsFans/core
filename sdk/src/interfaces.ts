@@ -28,6 +28,7 @@ export interface ProjectOptions {
   openFile?: string;
   hideDevTools?: boolean;
   devToolsHeight?: number;
+  origin?: string;
 }
 
 export interface OpenOptions extends ProjectOptions {
@@ -37,6 +38,7 @@ export interface OpenOptions extends ProjectOptions {
 export interface EmbedOptions extends ProjectOptions {
   clickToLoad?: boolean;
   view?: 'preview' | 'editor' | string;
+  theme?: 'light' | 'dark';
   height?: number | string;
   width?: number | string;
   hideExplorer?: boolean;

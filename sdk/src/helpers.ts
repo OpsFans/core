@@ -1,5 +1,10 @@
 import { ProjectOptions, EmbedOptions, OpenOptions } from './interfaces';
 
+export function getOrigin(options?: ProjectOptions | OpenOptions | EmbedOptions) {
+  if (options && options.origin) return options.origin;
+  return 'https://stackblitz.com';
+}
+
 const DEFAULT_FRAME_HEIGHT = '300';
 
 export function genID() {
@@ -27,6 +32,10 @@ export function buildProjectQuery(options?: EmbedOptions){
 
   if(options.view && (options.view === 'preview' || options.view === 'editor')){
     queryParams += `${queryParams.length ? '&' : ''}view=${options.view}`;
+  }
+
+  if(options.theme){
+    queryParams += `${queryParams.length ? '&' : ''}theme=${options.theme}`;
   }
 
   if(options.hideExplorer){
